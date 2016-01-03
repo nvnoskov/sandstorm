@@ -48864,20 +48864,23 @@ var Router = require('react-router');
 
 
 var getFileAndFolders = function(){
-    var p = localStorage.projectsDir||null;
-
+    var p = localStorage.projectsDir||"";
     var filelist = filelist || [];
-    if( p !== null){
+    if( p !== ""){
+      try{
         files = fs.readdirSync(p);
         files.forEach(function(file) {
             try{
-                if (fs.statSync(p + file+'/yii').isFile()) {
+                if (fs.statSync(p + '/' + file+'/yii').isFile()) {
                     filelist.push(file);
                 }
             }catch(e){
                 console.log(e);
             }
         });
+      }catch(e){
+          console.log(e);
+      }
     }
     return {
         files:filelist
@@ -48888,9 +48891,10 @@ var Projects = React.createClass({displayName: "Projects",
     mixins: [ Router.Navigation ],
     getInitialState: function() {
         var fileAndFolders = getFileAndFolders();
-        if(fileAndFolders.files.length==0) {
-            this.transitionTo('setting');
-        }
+        console.log(fileAndFolders);
+        // if(fileAndFolders.files.length==0) {
+        //     this.transitionTo('setting');
+        // }
         return fileAndFolders;
     },
     _onCreate:function(e){
@@ -48956,7 +48960,16 @@ var Projects = React.createClass({displayName: "Projects",
         var t = this;
         return (
             React.createElement("div", {className: "outlet"}, 
+                React.createElement("div", {className: this.state.files.length==0?'row':'row hidden'}, 
+                    React.createElement("div", {className: "col-md-12 "}, 
+                        React.createElement("div", {className: "bs-callout bs-callout-warning fade in"}, 
+                            React.createElement("h4", null, "Warning"), 
+                            React.createElement("p", null, "Seems your project folder is empty")
+                        )
+                    )
+                ), 
                 React.createElement("hr", null), 
+
                 React.createElement("div", {className: "row"}, 
                 
                     this.state.files.map(function(file,index){

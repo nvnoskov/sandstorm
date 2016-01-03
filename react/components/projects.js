@@ -3,20 +3,23 @@ var Router = require('react-router');
 
 
 var getFileAndFolders = function(){
-    var p = localStorage.projectsDir||null;
-
+    var p = localStorage.projectsDir||"";
     var filelist = filelist || [];
-    if( p !== null){
+    if( p !== ""){
+      try{
         files = fs.readdirSync(p);
         files.forEach(function(file) {
             try{
-                if (fs.statSync(p + file+'/yii').isFile()) {
+                if (fs.statSync(p + '/' + file+'/yii').isFile()) {
                     filelist.push(file);
                 }
             }catch(e){
                 console.log(e);
             }
         });
+      }catch(e){
+          console.log(e);
+      }
     }
     return {
         files:filelist
@@ -27,9 +30,10 @@ var Projects = React.createClass({
     mixins: [ Router.Navigation ],
     getInitialState: function() {
         var fileAndFolders = getFileAndFolders();
-        if(fileAndFolders.files.length==0) {
-            this.transitionTo('setting');
-        }
+        console.log(fileAndFolders);
+        // if(fileAndFolders.files.length==0) {
+        //     this.transitionTo('setting');
+        // }
         return fileAndFolders;
     },
     _onCreate:function(e){
@@ -95,7 +99,16 @@ var Projects = React.createClass({
         var t = this;
         return (
             <div className="outlet">
+                <div className={this.state.files.length==0?'row':'row hidden'}>
+                    <div className="col-md-12 ">
+                        <div className="bs-callout bs-callout-warning fade in">
+                            <h4>Warning</h4>
+                            <p>Seems your project folder is empty</p>
+                        </div>
+                    </div>
+                </div>
                 <hr/>
+
                 <div className="row">
                 {
                     this.state.files.map(function(file,index){
