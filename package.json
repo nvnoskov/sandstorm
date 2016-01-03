@@ -1,0 +1,49 @@
+{
+  "name": "sandstorm",
+  "main": "index.html",
+  "version": "0.0.1",
+  "description": "Sandstorm yii programmer tool",
+  "scripts": {
+    "start": "watchify react/app.js -o react/bundle.js -v ",
+    "build": "browserify . | uglifyjs > js/bundle.min.js"
+  },
+  "devDependencies": {
+    "browserify": "~6.2.0",
+    "envify": "~3.0.0",
+    "react": "^0.12.0",
+    "reactify": "^0.15",
+    "react-localstorage": "*",
+    "watchify": "~2.1.0"
+  },
+  "browserify": {
+    "transform": [
+      "reactify",
+      "envify"
+    ]
+  },
+  "window": {
+    "toolbar": false,
+    "resizable": true,
+    "width": 1280,
+    "height": 800,
+    "min_width": 1024,
+    "min_height": 700,
+    "position": "center"
+  },
+  "author": "Shipper Team",
+  "license": "BSD-2-Clause",
+  "dependencies": {
+    "ansi-html-stream": "0.0.3",
+    "brace": "^0.5.1",
+    "cheerio": "^0.19.0",
+    "events": "^1.0.2",
+    "flux": "^2.1.1",
+    "fs": "0.0.2",
+    "moment": "^2.9.0",
+    "mysql": "^2.5.5",
+    "object-assign": "^4.0.1",
+    "path": "^0.11.14",
+    "react-ace": "^2.3.0",
+    "react-router": "^0.12.4"
+  }
+}

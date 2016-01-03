@@ -1,0 +1,26 @@
+{
+	"name":"List Controller",
+	"type": "controllers",
+	"files":[
+		{
+			"type":"controller",
+			"content":"@views/controller.view.php"
+		},{
+			"type":"view",
+			"template":"controller.list"
+		},{
+			"type":"view",
+			"template":"controller.show"
+		}
+	],
+	"required":[
+		{
+			"name":"_CATMODEL_",
+			"value":"ListModel"
+		},
+		{
+			"name":"_MODEL_",
+			"value":"ListModel"
+		}
+	]
+}
