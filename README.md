@@ -1,8 +1,18 @@
+### Sandstorm
+![Sandstorm](/assets/img/sandstorm-40.png)
+
+This application written on NodeWebkit with ReactJS.
+
+**It works only with Yii2 advanced templates** (I\`ll fix this)
+
 ### Features
 
 * Create table structure in phpmyadmin\`s style
 * Generate migration for Yii2
 * Run command (migrate/up, gii/model, gii/crud) in project folder
+* Create projects from sandstorm (in develop)
+* Set html templates and assets to project (in develop)
+* Apply html-templates to views in controllers (in develop)
 
 
 ### Install and run
@@ -13,6 +23,12 @@ cd sandstorm
 npm install
 nw ./
 ```
+First of all you need set `Path to projects` in settings section.
+It path to your yii2 projects directory (app find `yii` executables in this folder).
+
+Next select you project in `Projects` section.
+
+And build you own sandcastles!
 
 ### Develop
 ```
