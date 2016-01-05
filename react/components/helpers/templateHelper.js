@@ -180,14 +180,14 @@ class AppAsset extends AssetBundle
 
         if(localStorage.giiModel){
             // run model
-            cmd = pathToProject+"/yii "+localStorage.giiModel+" --interactive=0 --tableName="+tableName+" --overwrite=1 --ns=common\\models --enableI18N=1 --generateLabelsFromComments=1 --modelClass="+moduleName+" --images="+(image?1:0);
+            cmd = pathToProject+"/yii "+localStorage.giiModel+" --interactive=0 --tableName="+tableName+" --overwrite=1 --ns=common\\\\models --enableI18N=1 --generateLabelsFromComments=1 --modelClass="+moduleName+" ";
             log.push("CMD: "+cmd);
             log.push(child_process.execSync(cmd).toString('utf8'));
         }
 
         if(localStorage.giiCrud){
             // run crud
-            cmd = pathToProject+"/yii "+localStorage.giiCrud+" --interactive=0 --modelClass=common\\models\\"+moduleName+" --searchModelClass=backend\\models\\"+moduleName+"Search --overwrite=1 --viewPath=@backend/views/"+tableName+" --enableI18N=1 --controllerClass=backend\\controllers\\"+moduleName+"Controller ";
+            cmd = pathToProject+"/yii "+localStorage.giiCrud+" --interactive=0 --modelClass=common\\\\models\\\\"+moduleName+" --searchModelClass=backend\\\\models\\\\"+moduleName+"Search --overwrite=1 --viewPath=@backend/views/"+tableName+" --enableI18N=1 --controllerClass=backend\\\\controllers\\\\"+moduleName+"Controller ";
             log.push("CMD: "+cmd);
             log.push(child_process.execSync(cmd).toString('utf8'));
         }
