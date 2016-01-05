@@ -5,6 +5,10 @@ This application written on NodeWebkit with ReactJS.
 
 **It works only with Yii2 advanced templates** (I\`ll fix this)
 
+### Dependencies
+NodeWebkit - [http://nwjs.io/](http://nwjs.io/)
+
+
 ### Features
 
 * Create table structure in phpmyadmin\`s style
@@ -18,7 +22,7 @@ This application written on NodeWebkit with ReactJS.
 ### Install and run
 
 ```
-clone git@github.com:vesnateam/sandstorm.git
+git clone git@github.com:vesnateam/sandstorm.git
 cd sandstorm
 npm install
 nw ./
@@ -32,7 +36,7 @@ And build you own sandcastles!
 
 ### Develop
 ```
-clone git@github.com:vesnateam/sandstorm.git
+git clone git@github.com:vesnateam/sandstorm.git
 cd sandstorm
 npm install
 npm start & nw ./
