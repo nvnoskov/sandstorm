@@ -22,7 +22,7 @@ NodeWebkit - [http://nwjs.io/](http://nwjs.io/)
 ### Install and run
 
 ```
-git clone git@github.com:vesnateam/sandstorm.git
+git clone https://github.com/vesnateam/sandstorm.git
 cd sandstorm
 npm install
 nw ./
@@ -36,7 +36,7 @@ And build you own sandcastles!
 
 ### Develop
 ```
-git clone git@github.com:vesnateam/sandstorm.git
+git clone https://github.com/vesnateam/sandstorm.git
 cd sandstorm
 npm install
 npm start & nw ./
